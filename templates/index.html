@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Log Viewer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Log Viewer</h1>
+    <form method="get">
+        <label for="file">Выберите лог-файл:</label>
+        <select name="file" id="file" onchange="this.form.submit()">
+            {% for file in log_files %}
+                <option value="{{ file }}" {% if file == selected_file %}selected{% endif %}>{{ file }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="level">Уровень логов:</label>
+        <select name="level" id="level" onchange="this.form.submit()">
+            <option value="ALL" {% if level == 'ALL' %}selected{% endif %}>ALL</option>
+            <option value="ERROR" {% if level == 'ERROR' %}selected{% endif %}>ERROR</option>
+            <option value="WARNING" {% if level == 'WARNING' %}selected{% endif %}>WARNING</option>
+            <option value="INFO" {% if level == 'INFO' %}selected{% endif %}>INFO</option>
+        </select>
+    </form>
+
+    <h2>Содержимое файла: {{ selected_file }}</h2>
+    <pre>
+{% for line in logs %}
+<span class="{% if 'ERROR' in line %}log-error{% elif 'WARNING' in line %}log-warning{% elif 'INFO' in line %}log-info{% endif %}">{{ line }}</span>
+{% endfor %}
+    </pre>
+</body>
+</html>

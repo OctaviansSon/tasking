@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+h1 {
+    color: #444;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+select {
+    margin-right: 20px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+pre {
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ccc;
+    overflow-x: auto;
+    max-height: 600px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Стили для различных уровней логов */
+.log-error {
+    color: #d9534f;
+    font-weight: bold;
+}
+
+.log-warning {
+    color: #f0ad4e;
+    font-weight: bold;
+}
+
+.log-info {
+    color: #5bc0de;
+}
